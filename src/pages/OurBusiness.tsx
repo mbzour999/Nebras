@@ -301,6 +301,25 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
                     </div>
                   </div>
                 </div>
+                
+                {/* Learn More Button */}
+                <div className="mt-6">
+                  <button 
+                    onClick={() => {
+                      if (index === 0) {
+                        onNavigate?.('business-aes-jordan-ipp1');
+                      } else if (index === 1) {
+                        onNavigate?.('business-am-solar');
+                      } else if (index === 2) {
+                        onNavigate?.('business-aes-levant-ipp4');
+                      }
+                    }}
+                    className="inline-flex items-center bg-[#005670] hover:bg-[#004558] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    {isArabic ? 'اعرف المزيد' : 'Learn More'}
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
