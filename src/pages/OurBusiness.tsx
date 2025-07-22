@@ -93,7 +93,7 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
         { en: 'Zero Emissions Operation', ar: 'تشغيل بدون انبعاثات' },
         { en: 'Advanced Solar Technology', ar: 'تقنية شمسية متقدمة' }
       ]
-    }
+    },
     {
       name: { en: 'Levant Power Plant (IPP4)', ar: 'محطة بلاد الشام للطاقة' },
       capacity: '241 MW',
