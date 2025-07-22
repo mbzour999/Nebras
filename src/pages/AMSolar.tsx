@@ -92,9 +92,12 @@ const AMSolar: React.FC<AMSolarProps> = ({ isArabic, onNavigate }) => {
               {isArabic ? 'الرئيسية' : 'Home'}
             </button>
             <ChevronRight className="w-4 h-4 mx-2" />
-            <span className="text-white text-opacity-60">
+            <button 
+              onClick={() => onNavigate?.('business')}
+              className="text-white text-opacity-60 hover:text-white transition-colors duration-200"
+            >
               {isArabic ? 'أعمالنا' : 'Our Business'}
-            </span>
+            </button>
             <ChevronRight className="w-4 h-4 mx-2" />
             <span className="text-white">
               {isArabic ? 'AM الطاقة الشمسية' : 'AM Solar'}
