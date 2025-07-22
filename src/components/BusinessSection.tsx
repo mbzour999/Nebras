@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Zap, Building2 } from 'lucide-react';
+import { ArrowRight, Zap, Building2, Sun } from 'lucide-react';
 
 interface BusinessSectionProps {
   isArabic: boolean;
@@ -61,6 +61,23 @@ const BusinessSection: React.FC<BusinessSectionProps> = ({ isArabic, onNavigate 
         { en: 'Tri-Fuel Flexibility', ar: 'مرونة الوقود الثلاثي' },
         { en: 'Peaking Operations', ar: 'عمليات الذروة' },
         { en: 'Grid Stabilization', ar: 'استقرار الشبكة' }
+      ]
+    },
+    {
+      id: 3,
+      icon: Sun,
+      image: 'https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+      title: { en: 'AM Solar', ar: 'AM الطاقة الشمسية' },
+      capacity: 'Solar PV',
+      investment: 'Clean Energy',
+      description: { 
+        en: 'Solar photovoltaic project leveraging Jordan\'s abundant solar resources to generate clean, renewable energy for a sustainable future.',
+        ar: 'مشروع الطاقة الشمسية الكهروضوئية يستفيد من الموارد الشمسية الوفيرة في الأردن لتوليد طاقة نظيفة ومتجددة لمستقبل مستدام.'
+      },
+      features: [
+        { en: 'Solar Photovoltaic Technology', ar: 'تقنية الطاقة الشمسية الكهروضوئية' },
+        { en: 'Zero Emissions', ar: 'انبعاثات صفرية' },
+        { en: 'Renewable Energy Source', ar: 'مصدر طاقة متجددة' }
       ]
     }
   ];
@@ -192,7 +209,7 @@ const BusinessSection: React.FC<BusinessSectionProps> = ({ isArabic, onNavigate 
         </div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
@@ -258,7 +275,11 @@ const BusinessSection: React.FC<BusinessSectionProps> = ({ isArabic, onNavigate 
                   
                   {/* CTA Button */}
                   <button 
-                    onClick={() => onNavigate?.(project.id === 1 ? 'business-aes-jordan-ipp1' : 'business-aes-levant-ipp4')}
+                    onClick={() => onNavigate?.(
+                      project.id === 1 ? 'business-aes-jordan-ipp1' : 
+                      project.id === 2 ? 'business-aes-levant-ipp4' : 
+                      'business-am-solar'
+                    )}
                     className="inline-flex items-center text-[#005670] hover:text-white bg-transparent hover:bg-[#005670] border-2 border-[#005670] px-6 py-3 rounded-full font-semibold transition-all duration-300 group-hover:scale-105"
                   >
                     {isArabic ? 'اقرأ المزيد' : 'Learn More'}
