@@ -82,6 +82,19 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
       ]
     },
     {
+      name: { en: 'AM Solar', ar: 'AM الطاقة الشمسية' },
+      capacity: '50 MW',
+      technology: { en: 'Solar Photovoltaic', ar: 'الطاقة الشمسية الكهروضوئية' },
+      investment: '$80M',
+      commissioned: '2022',
+      image: 'https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+      features: [
+        { en: 'Clean Renewable Energy', ar: 'طاقة متجددة نظيفة' },
+        { en: 'Zero Emissions Operation', ar: 'تشغيل بدون انبعاثات' },
+        { en: 'Advanced Solar Technology', ar: 'تقنية شمسية متقدمة' }
+      ]
+    }
+    {
       name: { en: 'Levant Power Plant (IPP4)', ar: 'محطة بلاد الشام للطاقة' },
       capacity: '241 MW',
       technology: { en: 'Tri-Fuel Peaking Plant', ar: 'محطة ذروة ثلاثية الوقود' },
