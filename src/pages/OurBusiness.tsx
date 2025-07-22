@@ -264,9 +264,22 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
                 
                 <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
                   <div className="bg-gray-50 p-8 rounded-2xl">
-                    <h3 className="text-3xl font-bold text-[#231f20] mb-4">
-                      {isArabic ? project.name.ar : project.name.en}
-                    </h3>
+                    <button
+                      onClick={() => {
+                        const pageMap: { [key: string]: string } = {
+                          'Amman East Power Plant (IPP1)': 'business-aes-jordan-ipp1',
+                          'Levant Power Plant (IPP4)': 'business-aes-levant-ipp4',
+                          'AM Solar': 'business-am-solar'
+                        };
+                        const pageName = pageMap[project.name.en] || 'business';
+                        onNavigate?.(pageName);
+                      }}
+                      className="text-left w-full group"
+                    >
+                      <h3 className="text-3xl font-bold text-[#231f20] mb-4 group-hover:text-[#005670] transition-colors duration-300 cursor-pointer">
+                        {isArabic ? project.name.ar : project.name.en}
+                      </h3>
+                    </button>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div>
