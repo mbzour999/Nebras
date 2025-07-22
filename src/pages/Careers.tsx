@@ -3,7 +3,7 @@ import { Shield, Handshake, Heart, Star, Zap, MapPin, Clock, Users, DollarSign, 
 
 interface CareersProps {
   isArabic: boolean;
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, jobId?: number) => void;
 }
 
 const Careers: React.FC<CareersProps> = ({ isArabic, onNavigate }) => {
@@ -448,6 +448,10 @@ const Careers: React.FC<CareersProps> = ({ isArabic, onNavigate }) => {
                     </div>
                     
                     <button className="w-full bg-[#005670] hover:bg-[#004558] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center">
+                    <button 
+                      onClick={() => onNavigate('apply-job', job.id)}
+                      className="w-full bg-[#005670] hover:bg-[#004558] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center"
+                    >
                       {isArabic ? 'تقدم الآن' : 'Apply Now'}
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </button>

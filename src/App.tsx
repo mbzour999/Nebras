@@ -27,18 +27,20 @@ import AESJordanIPP1 from './pages/AESJordanIPP1';
 import AESLevantIPP4 from './pages/AESLevantIPP4';
 import AMSolar from './pages/AMSolar';
 import NewsDetailPage from './pages/NewsDetailPage';
+import JobApplicationForm from './pages/JobApplicationForm';
 import Search from './pages/Search';
 
 interface CareersProps {
   isArabic: boolean;
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, jobId?: number) => void;
 }
 
 function App() {
   const [isArabic, setIsArabic] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'business' | 'careers' | 'news' | 'news-detail' | 'contact' | 'search' | 'sustainability-detail' | 'about-mission-vision-values' | 'about-ownership' | 'about-leadership' | 'about-ethics-compliance' | 'about-awards-recognitions' | 'sustainability-safety' | 'sustainability-environment' | 'sustainability-social' | 'sustainability-stakeholder' | 'sustainability-assets' | 'sustainability-supply' | 'business-aes-jordan-ipp1' | 'business-aes-levant-ipp4' | 'business-am-solar'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'business' | 'careers' | 'apply-job' | 'news' | 'news-detail' | 'contact' | 'search' | 'sustainability-detail' | 'about-mission-vision-values' | 'about-ownership' | 'about-leadership' | 'about-ethics-compliance' | 'about-awards-recognitions' | 'sustainability-safety' | 'sustainability-environment' | 'sustainability-social' | 'sustainability-stakeholder' | 'sustainability-assets' | 'sustainability-supply' | 'business-aes-jordan-ipp1' | 'business-aes-levant-ipp4' | 'business-am-solar'>('home');
   const [selectedSustainabilityCard, setSelectedSustainabilityCard] = useState<string>('');
   const [selectedNewsArticleId, setSelectedNewsArticleId] = useState<number | null>(null);
+  const [selectedJobId, setSelectedJobId] = useState<number | null>(null);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // News articles data
@@ -237,10 +239,15 @@ function App() {
     setIsArabic(!isArabic);
   };
 
-  const navigateToPage = (page: string) => {
+  const navigateToPage = (page: string, jobId?: number) => {
     // Store current page before navigation (for back functionality)
     if (page === 'search' && currentPage !== 'search') {
       setPreviousPage(currentPage);
+    }
+    
+    // Handle job application navigation
+    if (page === 'apply-job' && jobId) {
+      setSelectedJobId(jobId);
     }
     
     if (page.startsWith('#')) {
@@ -322,6 +329,8 @@ function App() {
         return <OurBusiness isArabic={isArabic} onNavigate={navigateToPage} />;
       case 'careers':
         return <Careers isArabic={isArabic} onNavigate={navigateToPage} />;
+      case 'apply-job':
+        return <JobApplicationForm isArabic={isArabic} onNavigate={navigateToPage} selectedJobId={selectedJobId!} />;
       case 'news':
         return <News isArabic={isArabic} newsArticles={newsArticles} onNavigate={navigateToPage} onReadMore={handleReadMoreClick} />;
       case 'news-detail':
