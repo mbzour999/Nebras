@@ -125,7 +125,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isArabic, onNavigate }) => {
       <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subtitle */}
         <div className="mb-4">
-          <span className="inline-block px-8 py-4 bg-white bg-opacity-20 backdrop-blur-sm text-white rounded-full text-2xl md:text-3xl font-bold mb-4 animate-fade-in-up">
+          <span className="inline-block px-6 py-3 bg-white bg-opacity-20 backdrop-blur-sm text-white rounded-full text-xl md:text-2xl font-bold mb-4 animate-fade-in-up">
             {isArabic ? videoConfig.subtitle.ar : videoConfig.subtitle.en}
           </span>
         </div>
