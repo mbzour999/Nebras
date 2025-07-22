@@ -112,21 +112,21 @@ const BusinessSection: React.FC<BusinessSectionProps> = ({ isArabic, onNavigate 
               <div className="p-8 lg:p-12 text-white">
                 <div className="inline-flex items-center px-4 py-2 bg-white bg-opacity-20 rounded-full mb-6">
                   <span className="text-white font-semibold text-sm tracking-wide uppercase">
-                    {isArabic ? 'شاهد عملياتنا' : 'Watch Our Operations'}
+                    {isArabic ? 'شاهد مشروع الطاقة الشمسية' : 'Watch Our Solar Project'}
                   </span>
                 </div>
                 
                 <h3 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight">
                   {isArabic 
-                    ? 'داخل محطات الطاقة في نبراس الأردن'
-                    : 'Inside Nibras Jordan Power Plants'
+                    ? 'مشروع AM للطاقة الشمسية'
+                    : 'AM Solar Energy Project'
                   }
                 </h3>
                 
                 <p className="text-lg text-white text-opacity-90 mb-8 leading-relaxed">
                   {isArabic
-                    ? 'اكتشف كيف تعمل محطاتنا على مدار الساعة لتوفير طاقة موثوقة وفعالة لأكثر من 8% من احتياجات الأردن من الكهرباء.'
-                    : 'Discover how our facilities operate around the clock to deliver reliable, efficient power for over 8% of Jordan\'s electricity needs.'
+                    ? 'اكتشف كيف نستفيد من الموارد الشمسية الوفيرة في الأردن لتوليد طاقة نظيفة ومستدامة للمستقبل.'
+                    : 'Discover how we harness Jordan\'s abundant solar resources to generate clean, sustainable energy for the future.'
                   }
                 </p>
                 
@@ -134,19 +134,19 @@ const BusinessSection: React.FC<BusinessSectionProps> = ({ isArabic, onNavigate 
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
                     <span className="text-white text-opacity-90">
-                      {isArabic ? 'محطة عمان الشرقية - 400 ميجاواط' : 'Amman East Power Plant - 400 MW'}
+                      {isArabic ? 'توليد طاقة متجددة ونظيفة' : 'Renewable & Clean Energy Generation'}
                     </span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
                     <span className="text-white text-opacity-90">
-                      {isArabic ? 'محطة بلاد الشام - 241 ميجاواط' : 'Levant Power Plant - 241 MW'}
+                      {isArabic ? 'تأثير مستدام على البيئة' : 'Sustainable Environmental Impact'}
                     </span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
                     <span className="text-white text-opacity-90">
-                      {isArabic ? 'تقنيات متقدمة ومعايير عالمية' : 'Advanced Technology & World-Class Standards'}
+                      {isArabic ? 'تقنية الألواح الشمسية المتقدمة' : 'Advanced Solar Panel Technology'}
                     </span>
                   </div>
                 </div>
@@ -159,7 +159,7 @@ const BusinessSection: React.FC<BusinessSectionProps> = ({ isArabic, onNavigate 
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img
                       src="https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
-                      alt={isArabic ? 'محطة الطاقة' : 'Power Plant Operations'}
+                      alt={isArabic ? 'مشروع AM للطاقة الشمسية' : 'AM Solar Project'}
                       className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     
@@ -179,10 +179,10 @@ const BusinessSection: React.FC<BusinessSectionProps> = ({ isArabic, onNavigate 
                   {/* Video Title */}
                   <div className="mt-4 text-center">
                     <h4 className="text-white font-semibold text-lg mb-2">
-                      {isArabic ? 'جولة في محطات الطاقة' : 'Power Plant Tour'}
+                      {isArabic ? 'جولة في مشروع الطاقة الشمسية' : 'Solar Project Tour'}
                     </h4>
                     <p className="text-white text-opacity-70 text-sm">
-                      {isArabic ? 'شاهد عملياتنا المتقدمة' : 'See Our Advanced Operations'}
+                      {isArabic ? 'شاهد تقنياتنا الشمسية المتقدمة' : 'See Our Advanced Solar Technology'}
                     </p>
                   </div>
                 </div>
