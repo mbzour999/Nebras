@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search as SearchIcon, X, Calendar, ArrowRight } from 'lucide-react';
+import { Search as SearchIcon, X, Calendar, ArrowRight, ChevronRight } from 'lucide-react';
 
 interface SearchProps {
   isArabic: boolean;
