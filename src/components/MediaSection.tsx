@@ -80,32 +80,6 @@ const MediaSection: React.FC<MediaSectionProps> = ({ isArabic, onNavigate }) => 
         ar: 'الشراكات القوية مع OPIC وJBIC وEBRD والبنوك الدولية تمكن من استمرار التميز التشغيلي.'
       }
     },
-    {
-      id: 5,
-      image: 'https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-      date: '2024-01-08',
-      title: { 
-        en: 'Advanced Technology Upgrades Enhance Plant Efficiency',
-        ar: 'تحديثات التكنولوجيا المتقدمة تعزز كفاءة المحطة'
-      },
-      description: { 
-        en: 'Latest technological improvements at both facilities result in increased efficiency and reduced environmental impact while maintaining reliable operations.',
-        ar: 'أحدث التحسينات التكنولوجية في كلا المنشأتين تؤدي إلى زيادة الكفاءة وتقليل التأثير البيئي مع الحفاظ على العمليات الموثوقة.'
-      }
-    },
-    {
-      id: 6,
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-      date: '2024-01-03',
-      title: { 
-        en: 'Nibras Jordan Strengthens International Partnerships',
-        ar: 'نبراس الأردن تعزز الشراكات الدولية'
-      },
-      description: { 
-        en: 'New strategic partnerships with global energy leaders enhance our operational capabilities and support future expansion opportunities.',
-        ar: 'شراكات استراتيجية جديدة مع قادة الطاقة العالميين تعزز قدراتنا التشغيلية وتدعم فرص التوسع المستقبلية.'
-      }
-    }
   ];
 
   const formatDate = (dateString: string) => {
