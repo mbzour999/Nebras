@@ -146,15 +146,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isArabic, onNavigate }) => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
           <button 
-            onClick={() => onNavigate?.('careers')}
-            className="bg-[#005670] hover:bg-[#004558] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
-          >
-            {isArabic ? 'الفرص الحالية' : 'Current Opportunities'}
-          </button>
-          
-          <button 
             onClick={() => onNavigate?.('business')}
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#005670] px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+            className="bg-[#005670] hover:bg-[#004558] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
           >
             {isArabic ? 'استراتيجيتنا' : 'Our Strategy'}
           </button>
