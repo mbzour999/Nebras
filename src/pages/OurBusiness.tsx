@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Zap, Building2, BarChart3, Globe, Users, Award, TrendingUp, CheckCircle } from 'lucide-react';
+import { ArrowRight, Zap, Building2, BarChart3, Globe, Users, Award, TrendingUp, CheckCircle, ChevronRight } from 'lucide-react';
 
 interface OurBusinessProps {
   isArabic: boolean;
