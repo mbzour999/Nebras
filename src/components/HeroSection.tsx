@@ -15,7 +15,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isArabic, onNavigate }) => {
   // Single video configuration
   const videoConfig = {
     src: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
-    fallback: 'https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    fallback: 'https://i.postimg.cc/nzTyB6rp/download.webp',
     title: { en: 'Powering Jordan\'s Future', ar: 'تشغيل مستقبل الأردن' },
     subtitle: { en: '641 MW Total Capacity', ar: '641 ميجاواط إجمالي القدرة' }
   };
