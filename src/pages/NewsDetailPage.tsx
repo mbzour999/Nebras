@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, Calendar, Eye, Share2, Facebook, Twitter, Linkedin, Mail } from 'lucide-react';
+import { ArrowLeft, Calendar, Eye, Share2, Facebook, Twitter, Linkedin, Mail, ChevronRight } from 'lucide-react';
 
 interface NewsArticle {
   id: number;
@@ -19,9 +19,10 @@ interface NewsDetailPageProps {
   articleId: number;
   newsArticles: NewsArticle[];
   onBack: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ isArabic, articleId, newsArticles, onBack }) => {
+const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ isArabic, articleId, newsArticles, onBack, onNavigate }) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -90,14 +91,14 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ isArabic, articleId, ne
           {/* Breadcrumb */}
           <div className="flex items-center text-gray-600 mb-4 text-sm">
             <button 
-              onClick={() => onBack()}
+              onClick={() => onNavigate?.('home')}
               className="hover:text-[#005670] transition-colors duration-200 cursor-pointer"
             >
               {isArabic ? 'الرئيسية' : 'Home'}
             </button>
             <ChevronRight className="w-4 h-4 mx-2" />
             <button 
-              onClick={() => onBack()}
+              onClick={() => onNavigate?.('news')}
               className="hover:text-[#005670] transition-colors duration-200 cursor-pointer"
             >
               {isArabic ? 'الأخبار' : 'News'}

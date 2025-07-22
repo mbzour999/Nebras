@@ -201,7 +201,7 @@ const Search: React.FC<SearchProps> = ({ isArabic, onNavigate, onBack }) => {
           {/* Breadcrumb */}
           <div className="flex items-center text-gray-600 mb-4 text-sm">
             <button 
-              onClick={onBack}
+              onClick={() => onNavigate?.('home')}
               className="hover:text-[#005670] transition-colors duration-200 cursor-pointer"
             >
               {isArabic ? 'الرئيسية' : 'Home'}

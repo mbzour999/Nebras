@@ -340,6 +340,7 @@ function App() {
             articleId={selectedNewsArticleId!}
             newsArticles={newsArticles}
             onBack={handleBackToNews}
+            onNavigate={navigateToPage}
           />
         );
       case 'contact':
