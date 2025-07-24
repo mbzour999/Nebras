@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, X, Facebook, Twitter, Linkedin, Globe, ChevronDown } from 'lucide-react';
+import { Search, Menu, X, Facebook, Twitter, Linkedin, Globe } from 'lucide-react';
 
 interface HeaderProps {
   isArabic: boolean;
@@ -87,21 +87,21 @@ const Header: React.FC<HeaderProps> = ({ isArabic, toggleLanguage, onNavigate, c
     setIsSustainabilityDropdownOpen(false);
   };
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isAboutUsDropdownOpen || isOurBusinessDropdownOpen || isSustainabilityDropdownOpen) {
-        setIsAboutUsDropdownOpen(false);
-        setIsOurBusinessDropdownOpen(false);
-        setIsSustainabilityDropdownOpen(false);
-      }
-    };
+  const handleMouseEnter = (dropdownName: string) => {
+    if (dropdownName === 'aboutUs') {
+      setIsAboutUsDropdownOpen(true);
+    } else if (dropdownName === 'ourBusiness') {
+      setIsOurBusinessDropdownOpen(true);
+    } else if (dropdownName === 'sustainability') {
+      setIsSustainabilityDropdownOpen(true);
+    }
+  };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isAboutUsDropdownOpen, isOurBusinessDropdownOpen, isSustainabilityDropdownOpen]);
+  const handleMouseLeave = () => {
+    setIsAboutUsDropdownOpen(false);
+    setIsOurBusinessDropdownOpen(false);
+    setIsSustainabilityDropdownOpen(false);
+  };
 
   const renderDropdown = (items: any[], isOpen: boolean, viewAllPage: string, viewAllText: { en: string, ar: string }) => (
     <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 z-50 transition-all duration-200 ${
@@ -157,28 +157,23 @@ const Header: React.FC<HeaderProps> = ({ isArabic, toggleLanguage, onNavigate, c
                 {menuItems.map((item, index) => (
                   <div key={index} className="relative">
                     {item.hasDropdown ? (
-                      <div className="relative">
+                      <div 
+                        className="relative"
+                        onMouseEnter={() => {
+                          if (item.en === 'ABOUT US') {
+                            handleMouseEnter('aboutUs');
+                          } else if (item.en === 'OUR BUSINESS') {
+                            handleMouseEnter('ourBusiness');
+                          } else if (item.en === 'SUSTAINABILITY') {
+                            handleMouseEnter('sustainability');
+                          }
+                        }}
+                        onMouseLeave={handleMouseLeave}
+                      >
                         <button
-                          onClick={() => {
-                            if (item.en === 'ABOUT US') {
-                              handleDropdownToggle('aboutUs');
-                            } else if (item.en === 'OUR BUSINESS') {
-                              handleDropdownToggle('ourBusiness');
-                            } else if (item.en === 'SUSTAINABILITY') {
-                              handleDropdownToggle('sustainability');
-                            }
-                          }}
-                          className="flex items-center text-gray-800 hover:text-[#005670] font-medium text-sm uppercase tracking-wide transition-colors duration-200"
+                          className="text-gray-800 hover:text-[#005670] font-medium text-sm uppercase tracking-wide transition-colors duration-200"
                         >
                           {isArabic ? item.ar : item.en}
-                          <ChevronDown 
-                            className={`ml-1 w-4 h-4 transition-transform duration-200 ${
-                              (item.en === 'ABOUT US' && isAboutUsDropdownOpen) ||
-                              (item.en === 'OUR BUSINESS' && isOurBusinessDropdownOpen) ||
-                              (item.en === 'SUSTAINABILITY' && isSustainabilityDropdownOpen)
-                                ? 'rotate-180' : ''
-                            }`} 
-                          />
                         </button>
                         
                         {/* Dropdown Menu */}
