@@ -289,7 +289,7 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
                   return (
                     <div
                       key={currentSlide * valuesPerSlide + index}
-                      className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
+                      className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 min-h-[320px] ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                       }`}
                       style={{ transitionDelay: `${index * 200}ms` }}
