@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, CheckCircle, Zap, Heart, Star, Smile, ChevronLeft, Target } from 'lucide-react';
+import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, CheckCircle, Zap, Heart, Star, Smile, ChevronLeft, Target, Globe } from 'lucide-react';
 
 interface SustainabilityMainProps {
   isArabic: boolean;
