@@ -211,29 +211,8 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   {isArabic
-                    ? 'AES في الأردن هي شركة تابعة لشركة AES. شركة AES (NYSE: AES) هي شركة طاقة عالمية من فورتشن 200. توفر شركة AES طاقة مستدامة وبأسعار معقولة لـ 17 دولة من خلال محفظتنا المتنوعة من أعمال التوزيع بالإضافة إلى مرافق التوليد الحرارية والمتجددة.'
-                    : 'AES in Jordan is an affiliate of the AES Corporation. The AES Corporation (NYSE: AES) is a Fortune 200 global power company. AES Corporation provide affordable, sustainable energy to 17 countries through our diverse portfolio of distribution businesses as well as thermal and renewable generation facilities.'
-                  }
-                </p>
-                
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  {isArabic
-                    ? 'قوة العمل في شركة AES المكونة من 21,000 شخص ملتزمة بالتميز التشغيلي وتلبية احتياجات الطاقة المتغيرة في العالم. بلغت إيرادات عام 2015 15 مليار دولار وتملك الشركة وتدير 37 مليار دولار من إجمالي الأصول.'
-                    : 'AES Corporation workforce of 21,000 people is committed to operational excellence and meeting the world\'s changing power needs. The 2015 revenues were $15 billion and company own and manage $37 billion in total assets.'
-                  }
-                </p>
-                
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  {isArabic
-                    ? 'AES مكرسة لتحسين حياة عملائها من خلال الاستفادة من حلول الطاقة التي تشمل مجموعة واسعة من التقنيات وأنواع الوقود، بما في ذلك الفحم والديزل والغاز والنفط وفحم البترول والطاقة المتجددة.'
-                    : 'AES are dedicated to improving the lives of its customers by leveraging the energy solutions that encompass a broad range of technologies and fuel types, including coal, diesel, gas, oil, pet coke and renewables.'
-                  }
-                </p>
-                
-                <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                  {isArabic
-                    ? 'يتشارك موظفو AES شغفاً لمساعدة تلبية احتياجات الطاقة الحالية والمتزايدة في العالم، مع توفير الفرصة للمجتمعات والبلدان للنمو الاقتصادي بسبب توفر الطاقة الكهربائية الموثوقة وبأسعار معقولة.'
-                    : 'AES people share a passion to help meet the world\'s current and increasing energy needs, while providing communities and countries the opportunity for economic growth due to the availability of reliable, affordable electric power.'
+                    ? 'AES الأردن جزء من شركة AES، وهي شركة طاقة عالمية من فورتشن 200 تعمل في 17 دولة. مع فريق من 21,000 شخص، تقدم AES طاقة موثوقة وبأسعار معقولة ومستدامة من خلال مزيج متنوع من التقنيات والوقود، بما في ذلك الطاقة المتجددة. تدير الشركة أصولاً بقيمة 37 مليار دولار وملتزمة بتلبية احتياجات الطاقة المتطورة في العالم مع دعم النمو الاقتصادي.'
+                    : 'AES Jordan is part of the AES Corporation, a Fortune 200 global energy company operating in 17 countries. With a team of 21,000, AES delivers reliable, affordable, and sustainable energy through a diverse mix of technologies and fuels, including renewables. The company manages $37 billion in assets and is committed to meeting the world\'s evolving power needs while supporting economic growth.'
                   }
                 </p>
                 
