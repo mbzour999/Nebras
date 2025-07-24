@@ -171,6 +171,7 @@ const Header: React.FC<HeaderProps> = ({ isArabic, toggleLanguage, onNavigate, c
                         onMouseLeave={handleMouseLeave}
                       >
                         <button
+                          onClick={() => handleNavigation(item.page)}
                           className="text-gray-800 hover:text-[#005670] font-medium text-sm uppercase tracking-wide transition-colors duration-200"
                         >
                           {isArabic ? item.ar : item.en}
