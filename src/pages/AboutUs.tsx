@@ -218,7 +218,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ isArabic, onNavigate }) => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className={`lg:order-2 transition-all duration-1000 ${
+            <div className={`transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               <h2 className="text-4xl font-bold text-[#231f20] mb-6">
@@ -240,7 +240,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ isArabic, onNavigate }) => {
               </div>
             </div>
             
-            <div className={`lg:order-1 transition-all duration-1000 delay-300 ${
+            <div className={`transition-all duration-1000 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               <img
