@@ -168,8 +168,35 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
       {/* AES Corporation Overview */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Image */}
+            <div className="relative">
+              <img
+                src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt={isArabic ? 'شركة AES' : 'AES Corporation'}
+                className="w-full h-96 object-cover rounded-2xl shadow-xl"
+              />
+              {/* Overlay with stats */}
+              <div className="absolute bottom-6 left-6 right-6 bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-4">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-lg font-bold text-[#005670]">17</div>
+                    <div className="text-xs text-gray-600">{isArabic ? 'دولة' : 'Countries'}</div>
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-[#005670]">21K</div>
+                    <div className="text-xs text-gray-600">{isArabic ? 'موظف' : 'Employees'}</div>
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-[#005670]">$37B</div>
+                    <div className="text-xs text-gray-600">{isArabic ? 'أصول' : 'Assets'}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Content */}
+            <div>
               <div className="inline-flex items-center px-6 py-3 bg-[#005670] bg-opacity-10 rounded-full mb-6">
                 <Building2 className="w-5 h-5 text-[#005670] mr-2" />
                 <span className="text-[#005670] font-semibold text-sm tracking-wide uppercase">
@@ -180,10 +207,8 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
               <h2 className="text-4xl font-bold text-[#231f20] mb-8 leading-tight">
                 {isArabic ? 'AES في الأردن' : 'AES in Jordan'}
               </h2>
-            </div>
-            
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-              <div className="prose prose-lg max-w-none">
+              
+              <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   {isArabic
                     ? 'AES في الأردن هي شركة تابعة لشركة AES. شركة AES (NYSE: AES) هي شركة طاقة عالمية من فورتشن 200. توفر شركة AES طاقة مستدامة وبأسعار معقولة لـ 17 دولة من خلال محفظتنا المتنوعة من أعمال التوزيع بالإضافة إلى مرافق التوليد الحرارية والمتجددة.'
@@ -213,11 +238,12 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
                 </p>
                 
                 <div className="text-center">
+                <div className="pt-6 border-t border-gray-200">
                   <a 
                     href="http://www.aesjordan.com.jo/about-us/partners/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-[#005670] hover:text-[#004558] font-semibold transition-colors duration-200"
+                    className="inline-flex items-center text-[#005670] hover:text-[#004558] font-semibold transition-colors duration-200 bg-gray-50 px-6 py-3 rounded-lg hover:bg-gray-100"
                   >
                     {isArabic ? 'اقرأ المزيد عن شركائنا' : 'Learn more about our partners'}
                     <Globe className="ml-2 w-4 h-4" />
