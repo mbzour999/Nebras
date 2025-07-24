@@ -11,8 +11,6 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
   const [currentSlide, setCurrentSlide] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Memoize core values to prevent unnecessary re-renders
-  const coreValues = React.useMemo(() => [
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -30,6 +28,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
     return () => observer.disconnect();
   }, []);
 
+  // Memoize core values to prevent unnecessary re-renders
+  const coreValues = React.useMemo(() => [
     {
       icon: Shield,
       title: { en: 'PUT SAFETY FIRST', ar: 'السلامة أولاً' },
