@@ -166,63 +166,34 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
       </section>
 
       {/* AES Corporation Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center px-6 py-3 bg-[#005670] bg-opacity-10 rounded-full mb-6">
-                <Building2 className="w-5 h-5 text-[#005670] mr-2" />
-                <span className="text-[#005670] font-semibold text-sm tracking-wide uppercase">
-                  {isArabic ? 'شركة AES' : 'AES Corporation'}
-                </span>
-              </div>
-              
-              <h2 className="text-4xl font-bold text-[#231f20] mb-8 leading-tight">
-                {isArabic ? 'AES في الأردن' : 'AES in Jordan'}
-              </h2>
-            </div>
-            
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-              <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  {isArabic
-                    ? 'AES في الأردن هي شركة تابعة لشركة AES. شركة AES (NYSE: AES) هي شركة طاقة عالمية من فورتشن 200. توفر شركة AES طاقة مستدامة وبأسعار معقولة لـ 17 دولة من خلال محفظتنا المتنوعة من أعمال التوزيع بالإضافة إلى مرافق التوليد الحرارية والمتجددة.'
-                    : 'AES in Jordan is an affiliate of the AES Corporation. The AES Corporation (NYSE: AES) is a Fortune 200 global power company. AES Corporation provide affordable, sustainable energy to 17 countries through our diverse portfolio of distribution businesses as well as thermal and renewable generation facilities.'
-                  }
-                </p>
-                
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  {isArabic
-                    ? 'قوة العمل في شركة AES المكونة من 21,000 شخص ملتزمة بالتميز التشغيلي وتلبية احتياجات الطاقة المتغيرة في العالم. بلغت إيرادات عام 2015 15 مليار دولار وتملك الشركة وتدير 37 مليار دولار من إجمالي الأصول.'
-                    : 'AES Corporation workforce of 21,000 people is committed to operational excellence and meeting the world\'s changing power needs. The 2015 revenues were $15 billion and company own and manage $37 billion in total assets.'
-                  }
-                </p>
-                
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  {isArabic
-                    ? 'AES مكرسة لتحسين حياة عملائها من خلال الاستفادة من حلول الطاقة التي تشمل مجموعة واسعة من التقنيات وأنواع الوقود، بما في ذلك الفحم والديزل والغاز والنفط وفحم البترول والطاقة المتجددة.'
-                    : 'AES are dedicated to improving the lives of its customers by leveraging the energy solutions that encompass a broad range of technologies and fuel types, including coal, diesel, gas, oil, pet coke and renewables.'
-                  }
-                </p>
-                
-                <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                  {isArabic
-                    ? 'يتشارك موظفو AES شغفاً لمساعدة تلبية احتياجات الطاقة الحالية والمتزايدة في العالم، مع توفير الفرصة للمجتمعات والبلدان للنمو الاقتصادي بسبب توفر الطاقة الكهربائية الموثوقة وبأسعار معقولة.'
-                    : 'AES people share a passion to help meet the world\'s current and increasing energy needs, while providing communities and countries the opportunity for economic growth due to the availability of reliable, affordable electric power.'
-                  }
-                </p>
-                
-                <div className="text-center">
-                  <a 
-                    href="http://www.aesjordan.com.jo/about-us/partners/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-[#005670] hover:text-[#004558] font-semibold transition-colors duration-200"
-                  >
-                    {isArabic ? 'اقرأ المزيد عن شركائنا' : 'Learn more about our partners'}
-                    <Globe className="ml-2 w-4 h-4" />
-                  </a>
+          <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-[#005670]">
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-[#005670] rounded-lg flex items-center justify-center">
+                  <Building2 className="w-6 h-6 text-white" />
                 </div>
+              </div>
+              <div className="flex-1">
+                <h2 className="text-xl font-bold text-[#231f20] mb-3">
+                  {isArabic ? 'AES في الأردن' : 'AES in Jordan'}
+                </h2>
+                <p className="text-gray-700 leading-relaxed text-sm mb-3">
+                  {isArabic
+                    ? 'AES في الأردن هي شركة تابعة لشركة AES. شركة AES (NYSE: AES) هي شركة طاقة عالمية من فورتشن 200 توفر طاقة مستدامة وبأسعار معقولة لـ 17 دولة. قوة العمل المكونة من 21,000 شخص ملتزمة بالتميز التشغيلي وتلبية احتياجات الطاقة المتغيرة في العالم.'
+                    : 'AES in Jordan is an affiliate of the AES Corporation. The AES Corporation (NYSE: AES) is a Fortune 200 global power company providing affordable, sustainable energy to 17 countries. Our workforce of 21,000 people is committed to operational excellence and meeting the world\'s changing power needs.'
+                  }
+                </p>
+                <a 
+                  href="http://www.aesjordan.com.jo/about-us/partners/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#005670] hover:text-[#004558] font-medium text-sm transition-colors duration-200"
+                >
+                  {isArabic ? 'اقرأ المزيد' : 'Learn more'}
+                  <Globe className="ml-1 w-3 h-3" />
+                </a>
               </div>
             </div>
           </div>
