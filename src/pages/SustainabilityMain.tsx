@@ -28,8 +28,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
     return () => observer.disconnect();
   }, []);
 
-  // Memoize core values to prevent unnecessary re-renders
-  const coreValues = React.useMemo(() => [
+  // Static data - no need for memoization
+  const coreValues = [
     {
       icon: Shield,
       title: { en: 'PUT SAFETY FIRST', ar: 'السلامة أولاً' },
@@ -70,10 +70,9 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
         ar: 'يمكن أن يكون العمل ممتعاً ومُرضياً ومثيراً. نحن نقدر كوننا جزءاً من فريق يحدث فرقاً وسنعمل على تنمية وتقوية عملياتنا.'
       }
     }
-  ], []);
+  ];
 
-  // Memoize sustainability features to prevent unnecessary re-renders
-  const sustainabilityFeatures = React.useMemo(() => [
+  const sustainabilityFeatures = [
     {
       id: 'sustainability-safety',
       icon: Shield,
@@ -128,28 +127,28 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
         ar: 'ضمان ممارسات سلسلة التوريد المستدامة والمسؤولة'
       }
     }
-  ], []);
+  ];
 
-  // Simplified carousel logic for values
+  // Simplified carousel logic
   const valuesPerSlide = 3;
   const totalSlides = Math.ceil(coreValues.length / valuesPerSlide);
 
-  const nextSlide = React.useCallback(() => {
+  const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
+  };
 
-  const prevSlide = React.useCallback(() => {
+  const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  }, [totalSlides]);
+  };
 
-  const goToSlide = React.useCallback((slideIndex: number) => {
+  const goToSlide = (slideIndex: number) => {
     setCurrentSlide(slideIndex);
-  }, []);
+  };
 
-  const getCurrentSlideValues = React.useMemo(() => {
+  const getCurrentSlideValues = () => {
     const startIndex = currentSlide * valuesPerSlide;
     return coreValues.slice(startIndex, startIndex + valuesPerSlide);
-  }, [currentSlide, valuesPerSlide, coreValues]);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -213,8 +212,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
                 
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {isArabic
-                    ? 'نؤمن أن أعمالنا تفعل أكثر بكثير من مجرد توفير الطاقة. تحسين الحياة وإحداث فرق دائم في المجتمعات التي تعمل فيها أعمالنا كان دائماً جزءاً من قيمنا ومهمتنا. نؤمن أنه من مسؤوليتنا توفير حلول البنية التحتية التي تدعم مستقبلاً اجتماعياً واقتصادياً وبيئياً مستداماً.'
-                    : 'We believe that our businesses do much more than just provide power. Improving lives and making a lasting difference in the communities in which our businesses operate has always been part of our values and mission. We believe it is our responsibility to provide infrastructure solutions that support a sustainable social, economic and environmental future.'
+                    ? 'نؤمن أن أعمالنا تفعل أكثر بكثير من مجرد توفير الطاقة. تحسين الحياة وإحداث فرق دائم في المجتمعات التي تعمل فيها أعمالنا كان دائماً جزءاً من قيمنا ومهمتنا.'
+                    : 'We believe that our businesses do much more than just provide power. Improving lives and making a lasting difference in the communities in which our businesses operate has always been part of our values and mission.'
                   }
                 </p>
 
@@ -286,15 +285,12 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
             {/* Cards Container */}
             <div className="overflow-hidden mx-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {getCurrentSlideValues.map((value, index) => {
+                {getCurrentSlideValues().map((value, index) => {
                   const IconComponent = value.icon;
                   return (
                     <div
-                      key={currentSlide * valuesPerSlide + index}
-                      className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 min-h-[320px] ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                      }`}
-                      style={{ transitionDelay: `${index * 100}ms` }}
+                      key={`${currentSlide}-${index}`}
+                      className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 min-h-[320px]"
                     >
                       <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
                         <IconComponent className="w-8 h-8 text-white" />
@@ -353,8 +349,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
               
               <p className="text-gray-600 leading-relaxed">
                 {isArabic
-                  ? 'نموذج أعمالنا هو أن نكون شركة الطاقة المستدامة الرائدة في العالم التي توفر بأمان طاقة موثوقة وبأسعار معقولة. نسعى للقيام بذلك من خلال الاستفادة من منصات الكهرباء الفريدة لدينا ومعرفة موظفينا لتوفير حلول الطاقة والبنية التحتية التي يحتاجها عملاؤنا حقاً.'
-                  : 'Our business model is to be the world\'s leading sustainable power company that safely provides reliable, affordable energy. We seek to do this by leveraging our unique electricity platforms and the knowledge of our people to provide the energy and infrastructure solutions our customers truly need.'
+                  ? 'نموذج أعمالنا هو أن نكون شركة الطاقة المستدامة الرائدة في العالم التي توفر بأمان طاقة موثوقة وبأسعار معقولة.'
+                  : 'Our business model is to be the world\'s leading sustainable power company that safely provides reliable, affordable energy.'
                 }
               </p>
             </div>
@@ -371,8 +367,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
               
               <p className="text-gray-600 leading-relaxed">
                 {isArabic
-                  ? 'نركز على تقديم خدمات ومنتجات تنافسية في أسواقنا الأساسية، مع السعي أيضاً لفرص تطوير الأعمال المناسبة في أسواق إضافية حيث يمكننا المنافسة بفعالية.'
-                  : 'We focus on delivering competitive services and products in our core markets, while also pursuing appropriate business development opportunities in additional markets where we can compete effectively.'
+                  ? 'نركز على تقديم خدمات ومنتجات تنافسية في أسواقنا الأساسية، مع السعي أيضاً لفرص تطوير الأعمال المناسبة في أسواق إضافية.'
+                  : 'We focus on delivering competitive services and products in our core markets, while also pursuing appropriate business development opportunities in additional markets.'
                 }
               </p>
             </div>
@@ -389,8 +385,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
               
               <p className="text-gray-600 leading-relaxed">
                 {isArabic
-                  ? 'في كل مشروع تجاري، يتشارك موظفونا شغفاً لمساعدة تلبية احتياجات الطاقة الحالية والمتزايدة في العالم، مع توفير الفرصة للمجتمعات والبلدان للنمو الاقتصادي بسبب توفر الطاقة الكهربائية الموثوقة وبأسعار معقولة.'
-                  : 'On every business venture, our people share a passion to help meet the world\'s current and increasing energy needs, while providing communities and countries the opportunity for economic growth due to the availability of reliable, affordable electric power.'
+                  ? 'في كل مشروع تجاري، يتشارك موظفونا شغفاً لمساعدة تلبية احتياجات الطاقة الحالية والمتزايدة في العالم.'
+                  : 'On every business venture, our people share a passion to help meet the world\'s current and increasing energy needs.'
                 }
               </p>
             </div>
@@ -419,10 +415,10 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
               return (
                 <div
                   key={feature.id}
-                  className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 group cursor-pointer border-2 border-transparent hover:border-[#005670] hover:border-opacity-20 ${
+                  className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer border-2 border-transparent hover:border-[#005670] hover:border-opacity-20 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                   onClick={() => onNavigate?.(feature.id)}
                 >
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] group-hover:bg-[#004558] rounded-full mb-6 transition-all duration-300 group-hover:scale-110">
