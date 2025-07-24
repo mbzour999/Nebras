@@ -26,6 +26,7 @@ import SupplyChainManagement from './pages/SupplyChainManagement';
 import AESJordanIPP1 from './pages/AESJordanIPP1';
 import AESLevantIPP4 from './pages/AESLevantIPP4';
 import AMSolar from './pages/AMSolar';
+import SustainabilityMain from './pages/SustainabilityMain';
 import NewsDetailPage from './pages/NewsDetailPage';
 import JobApplicationForm from './pages/JobApplicationForm';
 import Search from './pages/Search';
@@ -37,7 +38,7 @@ interface CareersProps {
 
 function App() {
   const [isArabic, setIsArabic] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'business' | 'careers' | 'apply-job' | 'news' | 'news-detail' | 'contact' | 'search' | 'sustainability-detail' | 'about-mission-vision-values' | 'about-ownership' | 'about-leadership' | 'about-ethics-compliance' | 'about-awards-recognitions' | 'sustainability-safety' | 'sustainability-environment' | 'sustainability-social' | 'sustainability-stakeholder' | 'sustainability-assets' | 'sustainability-supply' | 'business-aes-jordan-ipp1' | 'business-aes-levant-ipp4' | 'business-am-solar'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'business' | 'careers' | 'apply-job' | 'news' | 'news-detail' | 'contact' | 'search' | 'sustainability-main' | 'sustainability-detail' | 'about-mission-vision-values' | 'about-ownership' | 'about-leadership' | 'about-ethics-compliance' | 'about-awards-recognitions' | 'sustainability-safety' | 'sustainability-environment' | 'sustainability-social' | 'sustainability-stakeholder' | 'sustainability-assets' | 'sustainability-supply' | 'business-aes-jordan-ipp1' | 'business-aes-levant-ipp4' | 'business-am-solar'>('home');
   const [selectedSustainabilityCard, setSelectedSustainabilityCard] = useState<string>('');
   const [selectedNewsArticleId, setSelectedNewsArticleId] = useState<number | null>(null);
   const [selectedJobId, setSelectedJobId] = useState<number | null>(null);
@@ -347,6 +348,8 @@ function App() {
         return <ContactUs isArabic={isArabic} onNavigate={navigateToPage} />;
       case 'search':
         return <Search isArabic={isArabic} onNavigate={navigateToPage} onBack={handleBackFromSearch} />;
+      case 'sustainability-main':
+        return <SustainabilityMain isArabic={isArabic} onNavigate={navigateToPage} />;
       case 'about-mission-vision-values':
         return <MissionVisionValues isArabic={isArabic} onNavigate={navigateToPage} />;
       case 'about-ownership':
@@ -384,9 +387,6 @@ function App() {
             </div>
             <div id="business">
               <BusinessSection isArabic={isArabic} onNavigate={navigateToPage} />
-            </div>
-            <div id="sustainability">
-              <SustainabilitySection isArabic={isArabic} onCardClick={handleSustainabilityCardClick} />
             </div>
             <div id="news">
               <MediaSection isArabic={isArabic} onNavigate={navigateToPage} />

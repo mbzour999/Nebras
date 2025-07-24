@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ isArabic, toggleLanguage, onNavigate, c
 
   const menuItems = [
     { en: 'ABOUT US', ar: 'من نحن', page: 'about', hasDropdown: true },
-    { en: 'SUSTAINABILITY', ar: 'الاستدامة', page: '#sustainability', hasDropdown: true },
+    { en: 'SUSTAINABILITY', ar: 'الاستدامة', page: 'sustainability-main', hasDropdown: true },
     { en: 'OUR BUSINESS', ar: 'أعمالنا', page: 'business', hasDropdown: true },
     { en: 'CAREERS', ar: 'الوظائف', page: 'careers' },
     { en: 'NEWS', ar: 'الأخبار', page: 'news' },
