@@ -212,23 +212,6 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   {isArabic
                     ? 'AES الأردن جزء من شركة AES، وهي شركة طاقة عالمية من فورتشن 200 تعمل في 17 دولة. مع فريق من 21,000 شخص، تقدم AES طاقة موثوقة وبأسعار معقولة ومستدامة من خلال مزيج متنوع من التقنيات والوقود، بما في ذلك الطاقة المتجددة. تدير الشركة أصولاً بقيمة 37 مليار دولار وملتزمة بتلبية احتياجات الطاقة المتطورة في العالم مع دعم النمو الاقتصادي.'
-                    : 'AES Jordan is part of the AES Corporation, a Fortune 200 global energy company operating in 17 countries. With a team of 21,000, AES delivers reliable, affordable, and sustainable energy through a diverse mix of technologies and fuels, including renewables. The company manages $37 billion in assets and is committed to meeting the world\'s evolving power needs while supporting economic growth.'
-                  }
-                </p>
-                
-                <div className="pt-6 border-t border-gray-200">
-                  <a 
-                    href="http://www.aesjordan.com.jo/about-us/partners/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-[#005670] hover:text-[#004558] font-semibold transition-colors duration-200 bg-gray-50 px-6 py-3 rounded-lg hover:bg-gray-100"
-                  >
-                    {isArabic ? 'اقرأ المزيد عن شركائنا' : 'Learn more about our partners'}
-                    <Globe className="ml-2 w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
