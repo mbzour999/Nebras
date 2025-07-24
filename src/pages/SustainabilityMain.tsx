@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, Target, Award, Globe, CheckCircle, Zap, Heart, Star, Smile, ChevronLeft } from 'lucide-react';
+import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, CheckCircle, Zap, Heart, Star, Smile, ChevronLeft } from 'lucide-react';
 
 interface SustainabilityMainProps {
   isArabic: boolean;
@@ -11,6 +11,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
   const [currentSlide, setCurrentSlide] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  // Memoize core values to prevent unnecessary re-renders
+  const coreValues = React.useMemo(() => [
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -28,7 +30,6 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
     return () => observer.disconnect();
   }, []);
 
-  const coreValues = [
     {
       icon: Shield,
       title: { en: 'PUT SAFETY FIRST', ar: 'السلامة أولاً' },
@@ -69,30 +70,10 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
         ar: 'يمكن أن يكون العمل ممتعاً ومُرضياً ومثيراً. نحن نقدر كوننا جزءاً من فريق يحدث فرقاً وسنعمل على تنمية وتقوية عملياتنا.'
       }
     }
-  ];
+  ], []);
 
-  // Carousel logic for values
-  const valuesPerSlide = 3;
-  const totalSlides = Math.ceil(coreValues.length / valuesPerSlide);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const goToSlide = (slideIndex: number) => {
-    setCurrentSlide(slideIndex);
-  };
-
-  const getCurrentSlideValues = () => {
-    const startIndex = currentSlide * valuesPerSlide;
-    return coreValues.slice(startIndex, startIndex + valuesPerSlide);
-  };
-
-  const sustainabilityFeatures = [
+  // Memoize sustainability features to prevent unnecessary re-renders
+  const sustainabilityFeatures = React.useMemo(() => [
     {
       id: 'sustainability-safety',
       icon: Shield,
@@ -147,7 +128,28 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
         ar: 'ضمان ممارسات سلسلة التوريد المستدامة والمسؤولة'
       }
     }
-  ];
+  ], []);
+
+  // Simplified carousel logic for values
+  const valuesPerSlide = 3;
+  const totalSlides = Math.ceil(coreValues.length / valuesPerSlide);
+
+  const nextSlide = React.useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = React.useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  }, [totalSlides]);
+
+  const goToSlide = React.useCallback((slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+  }, []);
+
+  const getCurrentSlideValues = React.useMemo(() => {
+    const startIndex = currentSlide * valuesPerSlide;
+    return coreValues.slice(startIndex, startIndex + valuesPerSlide);
+  }, [currentSlide, valuesPerSlide, coreValues]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -284,7 +286,7 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
             {/* Cards Container */}
             <div className="overflow-hidden mx-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {getCurrentSlideValues().map((value, index) => {
+                {getCurrentSlideValues.map((value, index) => {
                   const IconComponent = value.icon;
                   return (
                     <div
@@ -292,7 +294,7 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
                       className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 min-h-[320px] ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                       }`}
-                      style={{ transitionDelay: `${index * 200}ms` }}
+                      style={{ transitionDelay: `${index * 100}ms` }}
                     >
                       <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
                         <IconComponent className="w-8 h-8 text-white" />
