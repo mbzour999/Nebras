@@ -237,7 +237,6 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
                   }
                 </p>
                 
-                <div className="text-center">
                 <div className="pt-6 border-t border-gray-200">
                   <a 
                     href="http://www.aesjordan.com.jo/about-us/partners/"
