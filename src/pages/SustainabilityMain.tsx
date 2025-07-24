@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, Target, Award, Globe, CheckCircle, Zap, Heart, Star, Smile } from 'lucide-react';
+import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, Target, Award, Globe, CheckCircle, Zap, Heart, Star, Smile, ChevronLeft } from 'lucide-react';
 
 interface SustainabilityMainProps {
   isArabic: boolean;
@@ -8,6 +8,7 @@ interface SustainabilityMainProps {
 
 const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNavigate }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -69,6 +70,27 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
       }
     }
   ];
+
+  // Carousel logic for values
+  const valuesPerSlide = 3;
+  const totalSlides = Math.ceil(coreValues.length / valuesPerSlide);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+  };
+
+  const getCurrentSlideValues = () => {
+    const startIndex = currentSlide * valuesPerSlide;
+    return coreValues.slice(startIndex, startIndex + valuesPerSlide);
+  };
 
   const sustainabilityFeatures = [
     {
@@ -232,31 +254,77 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {coreValues.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <div
+          {/* Values Carousel */}
+          <div className="relative mb-16">
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              disabled={currentSlide === 0}
+              className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg transition-all duration-300 z-20 ${
+                currentSlide === 0 
+                  ? 'text-gray-300 cursor-not-allowed' 
+                  : 'text-[#005670] hover:bg-[#005670] hover:text-white'
+              }`}
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              disabled={currentSlide === totalSlides - 1}
+              className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg transition-all duration-300 z-20 ${
+                currentSlide === totalSlides - 1 
+                  ? 'text-gray-300 cursor-not-allowed' 
+                  : 'text-[#005670] hover:bg-[#005670] hover:text-white'
+              }`}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Cards Container */}
+            <div className="overflow-hidden mx-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {getCurrentSlideValues().map((value, index) => {
+                  const IconComponent = value.icon;
+                  return (
+                    <div
+                      key={currentSlide * valuesPerSlide + index}
+                      className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                      }`}
+                      style={{ transitionDelay: `${index * 200}ms` }}
+                    >
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-[#005670] mb-4">
+                        {isArabic ? value.title.ar : value.title.en}
+                      </h3>
+                      
+                      <p className="text-gray-600 leading-relaxed">
+                        {isArabic ? value.description.ar : value.description.en}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Slide Indicators */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <button
                   key={index}
-                  className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentSlide === index 
+                      ? 'bg-[#005670] shadow-lg' 
+                      : 'bg-gray-300 hover:bg-gray-400'
                   }`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-[#005670] mb-4">
-                    {isArabic ? value.title.ar : value.title.en}
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed">
-                    {isArabic ? value.description.ar : value.description.en}
-                  </p>
-                </div>
-              );
-            })}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
