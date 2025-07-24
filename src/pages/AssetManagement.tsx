@@ -90,14 +90,17 @@ const AssetManagement: React.FC<AssetManagementProps> = ({ isArabic, onNavigate 
           <div className="flex items-center text-white text-opacity-80 mb-8 text-sm">
             <button 
               onClick={() => onNavigate?.('home')}
-              className="hover:text-white transition-colors duration-200"
+              className="hover:text-white transition-colors duration-200 cursor-pointer"
             >
               {isArabic ? 'الرئيسية' : 'Home'}
             </button>
             <ChevronRight className="w-4 h-4 mx-2" />
-            <span className="text-white text-opacity-60">
+            <button 
+              onClick={() => onNavigate?.('sustainability-main')}
+              className="text-white text-opacity-60 hover:text-white transition-colors duration-200 cursor-pointer"
+            >
               {isArabic ? 'الاستدامة' : 'Sustainability'}
-            </span>
+            </button>
             <ChevronRight className="w-4 h-4 mx-2" />
             <span className="text-white">
               {isArabic ? 'إدارة الأصول' : 'Asset Management'}
