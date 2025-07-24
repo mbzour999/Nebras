@@ -165,36 +165,49 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
         </div>
       </section>
 
-      {/* AES Corporation Overview */}
-      <section className="py-12 bg-gray-50">
+      {/* AES Corporation Banner */}
+      <section className="bg-gradient-to-r from-[#005670] to-[#004558] text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-[#005670]">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-[#005670] rounded-lg flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-white" />
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center mb-4 md:mb-0">
+              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                <Globe className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">
+                  {isArabic ? 'AES في الأردن' : 'AES in Jordan'}
+                </h3>
+                <p className="text-white text-opacity-80 text-sm">
+                  {isArabic ? 'شركة تابعة لشركة AES العالمية' : 'An affiliate of AES Corporation'}
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center md:text-right">
+              <div className="flex items-center justify-center md:justify-end space-x-6 text-sm">
+                <div className="text-center">
+                  <div className="font-bold text-white">17</div>
+                  <div className="text-white text-opacity-70 text-xs">{isArabic ? 'دولة' : 'Countries'}</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-bold text-white">21K</div>
+                  <div className="text-white text-opacity-70 text-xs">{isArabic ? 'موظف' : 'Employees'}</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-bold text-white">$37B</div>
+                  <div className="text-white text-opacity-70 text-xs">{isArabic ? 'أصول' : 'Assets'}</div>
                 </div>
               </div>
-              <div className="flex-1">
-                <h2 className="text-xl font-bold text-[#231f20] mb-3">
-                  {isArabic ? 'AES في الأردن' : 'AES in Jordan'}
-                </h2>
-                <p className="text-gray-700 leading-relaxed text-sm mb-3">
-                  {isArabic
-                    ? 'AES في الأردن هي شركة تابعة لشركة AES. شركة AES (NYSE: AES) هي شركة طاقة عالمية من فورتشن 200 توفر طاقة مستدامة وبأسعار معقولة لـ 17 دولة. قوة العمل المكونة من 21,000 شخص ملتزمة بالتميز التشغيلي وتلبية احتياجات الطاقة المتغيرة في العالم.'
-                    : 'AES in Jordan is an affiliate of the AES Corporation. The AES Corporation (NYSE: AES) is a Fortune 200 global power company providing affordable, sustainable energy to 17 countries. Our workforce of 21,000 people is committed to operational excellence and meeting the world\'s changing power needs.'
-                  }
-                </p>
-                <a 
-                  href="http://www.aesjordan.com.jo/about-us/partners/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-[#005670] hover:text-[#004558] font-medium text-sm transition-colors duration-200"
-                >
-                  {isArabic ? 'اقرأ المزيد' : 'Learn more'}
-                  <Globe className="ml-1 w-3 h-3" />
-                </a>
-              </div>
+              
+              <a 
+                href="http://www.aesjordan.com.jo/about-us/partners/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-white hover:text-gray-200 text-sm font-medium mt-2 transition-colors duration-200"
+              >
+                {isArabic ? 'المزيد عن AES' : 'More about AES'}
+                <Globe className="ml-1 w-3 h-3" />
+              </a>
             </div>
           </div>
         </div>
