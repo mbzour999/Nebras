@@ -176,23 +176,6 @@ const OurBusiness: React.FC<OurBusinessProps> = ({ isArabic, onNavigate }) => {
                 alt={isArabic ? 'شركة AES' : 'AES Corporation'}
                 className="w-full h-96 object-cover rounded-2xl shadow-xl"
               />
-              {/* Overlay with stats */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-4">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-lg font-bold text-[#005670]">17</div>
-                    <div className="text-xs text-gray-600">{isArabic ? 'دولة' : 'Countries'}</div>
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-[#005670]">21K</div>
-                    <div className="text-xs text-gray-600">{isArabic ? 'موظف' : 'Employees'}</div>
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-[#005670]">$37B</div>
-                    <div className="text-xs text-gray-600">{isArabic ? 'أصول' : 'Assets'}</div>
-                  </div>
-                </div>
-              </div>
             </div>
             
             {/* Right Column - Content */}
