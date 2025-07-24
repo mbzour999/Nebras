@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, Target, Award, Globe, CheckCircle } from 'lucide-react';
+import { ArrowRight, ChevronRight, Shield, Leaf, Users, Handshake, Building2, Truck, Target, Award, Globe, CheckCircle, Zap, Heart, Star, Smile } from 'lucide-react';
 
 interface SustainabilityMainProps {
   isArabic: boolean;
@@ -26,6 +26,49 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
 
     return () => observer.disconnect();
   }, []);
+
+  const coreValues = [
+    {
+      icon: Shield,
+      title: { en: 'PUT SAFETY FIRST', ar: 'السلامة أولاً' },
+      description: { 
+        en: 'We always put safety first—for our people, contractors and communities.',
+        ar: 'نضع السلامة دائماً في المقدمة - لموظفينا ومقاولينا ومجتمعاتنا.'
+      }
+    },
+    {
+      icon: CheckCircle,
+      title: { en: 'ACT WITH INTEGRITY', ar: 'التصرف بنزاهة' },
+      description: { 
+        en: 'Integrity is at the core of everything we do—how we conduct ourselves and how we interact with our stakeholders.',
+        ar: 'النزاهة هي جوهر كل ما نقوم به - كيف نتصرف وكيف نتفاعل مع أصحاب المصلحة.'
+      }
+    },
+    {
+      icon: Handshake,
+      title: { en: 'HONOR COMMITMENTS', ar: 'الوفاء بالالتزامات' },
+      description: { 
+        en: 'We honor our commitments to our customers, teammates, communities, owners, suppliers and partners, and we encourage our businesses to make positive contributions to society.',
+        ar: 'نحن نفي بالتزاماتنا تجاه عملائنا وزملائنا ومجتمعاتنا والملاك والموردين والشركاء، ونشجع أعمالنا على تقديم مساهمات إيجابية للمجتمع.'
+      }
+    },
+    {
+      icon: Star,
+      title: { en: 'STRIVE FOR EXCELLENCE', ar: 'السعي للتميز' },
+      description: { 
+        en: 'We strive to be the best in all that we do and to perform at world-class levels.',
+        ar: 'نسعى لأن نكون الأفضل في كل ما نقوم به وأن نؤدي على مستويات عالمية.'
+      }
+    },
+    {
+      icon: Smile,
+      title: { en: 'HAVE FUN THROUGH WORK', ar: 'الاستمتاع من خلال العمل' },
+      description: { 
+        en: 'Work can be fun, fulfilling and exciting. We appreciate being part of a team that is making a difference and we will work to grow and strengthen our operations.',
+        ar: 'يمكن أن يكون العمل ممتعاً ومُرضياً ومثيراً. نحن نقدر كوننا جزءاً من فريق يحدث فرقاً وسنعمل على تنمية وتقوية عملياتنا.'
+      }
+    }
+  ];
 
   const sustainabilityFeatures = [
     {
@@ -84,44 +127,6 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
     }
   ];
 
-  const sustainabilityStats = [
-    {
-      icon: Target,
-      number: '99.8%',
-      label: { en: 'Environmental Compliance', ar: 'الامتثال البيئي' }
-    },
-    {
-      icon: Award,
-      number: '15+',
-      label: { en: 'Safety Awards', ar: 'جوائز السلامة' }
-    },
-    {
-      icon: Globe,
-      number: '100%',
-      label: { en: 'World Bank Standards', ar: 'معايير البنك الدولي' }
-    },
-    {
-      icon: Users,
-      number: '170+',
-      label: { en: 'Employees', ar: 'الموظفون' }
-    }
-  ];
-
-  const commitments = [
-    {
-      title: { en: 'Environmental Stewardship', ar: 'الإشراف البيئي' },
-      description: { en: 'Full compliance with World Bank, JBIC, and OPIC environmental guidelines', ar: 'الامتثال الكامل للمبادئ التوجيهية البيئية للبنك الدولي وJBIC وOPIC' }
-    },
-    {
-      title: { en: 'Community Investment', ar: 'الاستثمار المجتمعي' },
-      description: { en: 'Supporting local communities through education, healthcare, and development programs', ar: 'دعم المجتمعات المحلية من خلال برامج التعليم والرعاية الصحية والتنمية' }
-    },
-    {
-      title: { en: 'Operational Excellence', ar: 'التميز التشغيلي' },
-      description: { en: 'Maintaining highest standards of safety, efficiency, and reliability', ar: 'الحفاظ على أعلى معايير السلامة والكفاءة والموثوقية' }
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -147,8 +152,8 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
             </h1>
             <p className="text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed">
               {isArabic 
-                ? 'نحن ملتزمون بالإشراف البيئي والامتثال والكفاءة عبر جميع العمليات'
-                : 'We are committed to environmental stewardship, compliance, and efficiency across all operations'
+                ? 'كشركة طاقة مستدامة رائدة، يوفر مزيجنا المتنوع من مصادر التوليد القوة والمرونة للتكيف مع احتياجات السوق المحلية والإقليمية'
+                : 'As a leading sustainable power company, our diverse mix of generation sources provides us the strength and flexibility to adapt to local and regional market needs'
               }
             </p>
           </div>
@@ -171,21 +176,28 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
               </div>
               
               <h2 className="text-4xl font-bold text-[#231f20] mb-8 leading-tight">
-                {isArabic ? 'الاستدامة في نبراس الأردن' : 'Sustainability at Nibras Jordan'}
+                {isArabic ? 'أكثر من مجرد توفير الطاقة' : 'More Than Just Providing Power'}
               </h2>
               
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {isArabic
-                    ? 'في نبراس الأردن، الاستدامة ليست مجرد التزام - إنها جزء أساسي من هويتنا وعملياتنا. نحن نؤمن بأن النجاح الحقيقي يُقاس بقدرتنا على توفير طاقة موثوقة مع حماية البيئة ودعم المجتمعات التي نخدمها.'
-                    : 'At Nibras Jordan, sustainability is not just a commitment - it is a fundamental part of who we are and how we operate. We believe that true success is measured by our ability to deliver reliable energy while protecting the environment and supporting the communities we serve.'
+                    ? 'كشركة طاقة مستدامة رائدة، يوفر مزيجنا المتنوع من مصادر التوليد القوة والمرونة للتكيف مع احتياجات السوق المحلية والإقليمية، وتعظيم كفاءة المحطة وتوفير كهرباء موثوقة وبأسعار معقولة.'
+                    : 'As a leading sustainable power company, our diverse mix of generation sources provides us the strength and flexibility to adapt to local and regional market needs, maximize plant efficiency and deliver reliable, affordable electricity.'
                   }
                 </p>
                 
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {isArabic
-                    ? 'نهجنا الشامل للاستدامة يشمل الإشراف البيئي والمسؤولية الاجتماعية والحوكمة الأخلاقية، مما يضمن أن عملياتنا تساهم في مستقبل مستدام للأردن والمنطقة.'
-                    : 'Our comprehensive approach to sustainability encompasses environmental stewardship, social responsibility, and ethical governance, ensuring that our operations contribute to a sustainable future for Jordan and the region.'
+                    ? 'نؤمن أن أعمالنا تفعل أكثر بكثير من مجرد توفير الطاقة. تحسين الحياة وإحداث فرق دائم في المجتمعات التي تعمل فيها أعمالنا كان دائماً جزءاً من قيمنا ومهمتنا. نؤمن أنه من مسؤوليتنا توفير حلول البنية التحتية التي تدعم مستقبلاً اجتماعياً واقتصادياً وبيئياً مستداماً.'
+                    : 'We believe that our businesses do much more than just provide power. Improving lives and making a lasting difference in the communities in which our businesses operate has always been part of our values and mission. We believe it is our responsibility to provide infrastructure solutions that support a sustainable social, economic and environmental future.'
+                  }
+                </p>
+
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'تركز أنشطة الاستدامة لدينا على مجالات محددة، أو جوانب مادية، في سياق خمس مبادرات استراتيجية واسعة: التميز المالي، التميز التشغيلي، الأداء البيئي، إشراك أصحاب المصلحة وموظفو AES.'
+                    : 'Our sustainability activities focus on specific areas, or material aspects, within the context of five broad strategic initiatives: Financial Excellence, Operational Excellence, Environmental Performance, Stakeholder Engagement and AES People.'
                   }
                 </p>
               </div>
@@ -205,16 +217,28 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
         </div>
       </section>
 
-      {/* Statistics Section */}
+      {/* Company Values Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {sustainabilityStats.map((stat, index) => {
-              const IconComponent = stat.icon;
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#231f20] mb-6">
+              {isArabic ? 'شركة مبنية على القيم، مستدامة بالقيم' : 'A Company Built on Values, Sustained by Values'}
+            </h2>
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+              {isArabic
+                ? 'قيمنا هي في قلب عملياتنا ونؤمن أن هذه القيم تميزنا عن الآخرين في صناعتنا. كل يوم، يسترشد موظفونا وأعمالنا حول العالم بالقيم الأساسية التالية:'
+                : 'Our values are at the heart of our operations and we believe these values set us apart from others in our industry. Every day, our people and businesses around the world are guided by the following core values:'
+              }
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {coreValues.map((value, index) => {
+              const IconComponent = value.icon;
               return (
                 <div
                   key={index}
-                  className={`text-center transition-all duration-1000 ${
+                  className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                   style={{ transitionDelay: `${index * 200}ms` }}
@@ -222,10 +246,14 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-[#005670] mb-2">{stat.number}</div>
-                  <div className="text-gray-600 font-medium">
-                    {isArabic ? stat.label.ar : stat.label.en}
-                  </div>
+                  
+                  <h3 className="text-xl font-bold text-[#005670] mb-4">
+                    {isArabic ? value.title.ar : value.title.en}
+                  </h3>
+                  
+                  <p className="text-gray-600 leading-relaxed">
+                    {isArabic ? value.description.ar : value.description.en}
+                  </p>
                 </div>
               );
             })}
@@ -233,41 +261,69 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
         </div>
       </section>
 
-      {/* Key Commitments */}
+      {/* Sustainable Advantage Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#231f20] mb-6">
-              {isArabic ? 'التزاماتنا الرئيسية' : 'Our Key Commitments'}
+              {isArabic ? 'ميزة مستدامة' : 'A Sustainable Advantage'}
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              {isArabic
-                ? 'نحن ملتزمون بأعلى معايير الاستدامة في جميع جوانب أعمالنا'
-                : 'We are committed to the highest standards of sustainability across all aspects of our business'
-              }
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {commitments.map((commitment, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                <div className="flex items-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-[#005670] mr-3" />
-                  <h3 className="text-xl font-bold text-[#231f20]">
-                    {isArabic ? commitment.title.ar : commitment.title.en}
-                  </h3>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  {isArabic ? commitment.description.ar : commitment.description.en}
-                </p>
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Our Business Model */}
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
+                <Target className="w-8 h-8 text-white" />
               </div>
-            ))}
+              
+              <h3 className="text-2xl font-bold text-[#231f20] mb-4">
+                {isArabic ? 'نموذج أعمالنا' : 'Our Business Model'}
+              </h3>
+              
+              <p className="text-gray-600 leading-relaxed">
+                {isArabic
+                  ? 'نموذج أعمالنا هو أن نكون شركة الطاقة المستدامة الرائدة في العالم التي توفر بأمان طاقة موثوقة وبأسعار معقولة. نسعى للقيام بذلك من خلال الاستفادة من منصات الكهرباء الفريدة لدينا ومعرفة موظفينا لتوفير حلول الطاقة والبنية التحتية التي يحتاجها عملاؤنا حقاً.'
+                  : 'Our business model is to be the world\'s leading sustainable power company that safely provides reliable, affordable energy. We seek to do this by leveraging our unique electricity platforms and the knowledge of our people to provide the energy and infrastructure solutions our customers truly need.'
+                }
+              </p>
+            </div>
+
+            {/* Our Footprint */}
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
+                <Globe className="w-8 h-8 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold text-[#231f20] mb-4">
+                {isArabic ? 'بصمتنا' : 'Our Footprint'}
+              </h3>
+              
+              <p className="text-gray-600 leading-relaxed">
+                {isArabic
+                  ? 'نركز على تقديم خدمات ومنتجات تنافسية في أسواقنا الأساسية، مع السعي أيضاً لفرص تطوير الأعمال المناسبة في أسواق إضافية حيث يمكننا المنافسة بفعالية.'
+                  : 'We focus on delivering competitive services and products in our core markets, while also pursuing appropriate business development opportunities in additional markets where we can compete effectively.'
+                }
+              </p>
+            </div>
+
+            {/* Our People */}
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005670] rounded-full mb-6">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold text-[#231f20] mb-4">
+                {isArabic ? 'موظفونا' : 'Our People'}
+              </h3>
+              
+              <p className="text-gray-600 leading-relaxed">
+                {isArabic
+                  ? 'في كل مشروع تجاري، يتشارك موظفونا شغفاً لمساعدة تلبية احتياجات الطاقة الحالية والمتزايدة في العالم، مع توفير الفرصة للمجتمعات والبلدان للنمو الاقتصادي بسبب توفر الطاقة الكهربائية الموثوقة وبأسعار معقولة.'
+                  : 'On every business venture, our people share a passion to help meet the world\'s current and increasing energy needs, while providing communities and countries the opportunity for economic growth due to the availability of reliable, affordable electric power.'
+                }
+              </p>
+            </div>
           </div>
         </div>
       </section>
