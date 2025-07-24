@@ -149,7 +149,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isArabic, onNavigate }) => {
             onClick={() => onNavigate?.('business')}
             className="bg-[#005670] hover:bg-[#004558] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
           >
-            {isArabic ? 'استراتيجيتنا' : 'Our Strategy'}
+            {isArabic ? 'أعمالنا' : 'Our Business'}
           </button>
         </div>
       </div>
