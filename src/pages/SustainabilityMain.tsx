@@ -182,8 +182,179 @@ const SustainabilityMain: React.FC<SustainabilityMainProps> = ({ isArabic, onNav
         </div>
       </section>
 
-      {/* Introduction Section */}
+      {/* AES Jordan Businesses Overview */}
       <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Content */}
+            <div className={`transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="inline-flex items-center px-6 py-3 bg-[#005670] bg-opacity-10 rounded-full mb-6">
+                <Building2 className="w-5 h-5 text-[#005670] mr-2" />
+                <span className="text-[#005670] font-semibold text-sm tracking-wide uppercase">
+                  {isArabic ? 'نظرة عامة على الأعمال' : 'Business Overview'}
+                </span>
+              </div>
+              
+              <h2 className="text-4xl font-bold text-[#231f20] mb-8 leading-tight">
+                {isArabic ? 'نظرة عامة على أعمال AES الأردن' : 'AES Jordan Businesses Overview'}
+              </h2>
+              
+              <div className="space-y-6">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'شركة AES الأردن هي محطة طاقة بقدرة 400 ميجاواط تعمل بالغاز الطبيعي والنفط ثنائية الوقود تقع شرق عمان. كانت المحطة أول منتج مستقل للطاقة (IPP) يبدأ عمليات توليد الطاقة من أجل دعم التنمية الاقتصادية للبلاد.'
+                    : 'AES Jordan PSC is a 400 megawatt (MW) dual fuel natural gas- and oil-fired power plant located east of Amman. The plant was the first Independent Power Producer (IPP) to start power generation operations in order to support the economic development of the country.'
+                  }
+                </p>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'تولد AES الأردن حوالي 8% من كهرباء الأردن وهي واحدة من أكثر محطات الطاقة موثوقية في البلاد. تشمل محفظة AES في الأردن أيضاً محطة طاقة ثلاثية الوقود بقدرة 241 ميجاواط، والتي دخلت في التشغيل التجاري في يوليو 2014.'
+                    : 'AES Jordan generates approximately 8% of Jordan\'s electricity and is one of the most reliable power plants in the country. AES\' portfolio in Jordan also includes a 241 MW Tri Fuel power plant, which entered in to commercial operation in July 2014.'
+                  }
+                </p>
+
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'معاً توفر هذه المشاريع 641 ميجاواط، مما يساهم في استقرار قطاع الطاقة وتعزيز استقلالية الطاقة في البلاد.'
+                    : 'Together these projects provide 641 MW, contributing to the stabilization of the energy sector and enhancing the energy independence of the country.'
+                  }
+                </p>
+              </div>
+            </div>
+            
+            {/* Right Column - Image */}
+            <div className={`transition-all duration-1000 delay-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt={isArabic ? 'أعمال AES الأردن' : 'AES Jordan Businesses'}
+                className="w-full h-96 object-cover rounded-2xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AES Jordan PSC - Amman East Power Plant (IPP1) */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Image */}
+            <div className={`transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt={isArabic ? 'محطة عمان الشرقية للطاقة' : 'Amman East Power Plant'}
+                className="w-full h-96 object-cover rounded-2xl shadow-xl"
+              />
+            </div>
+            
+            {/* Right Column - Content */}
+            <div className={`transition-all duration-1000 delay-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="inline-flex items-center px-6 py-3 bg-[#005670] bg-opacity-10 rounded-full mb-6">
+                <Zap className="w-5 h-5 text-[#005670] mr-2" />
+                <span className="text-[#005670] font-semibold text-sm tracking-wide uppercase">
+                  {isArabic ? 'IPP1' : 'IPP1'}
+                </span>
+              </div>
+              
+              <h2 className="text-4xl font-bold text-[#231f20] mb-8 leading-tight">
+                {isArabic ? 'شركة AES الأردن - محطة عمان الشرقية للطاقة (IPP1)' : 'AES Jordan PSC- Amman East Power Plant (IPP1)'}
+              </h2>
+              
+              <div className="space-y-6">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'محطة عمان الشرقية للطاقة (AEPP) هي محطة طاقة دورة مركبة بقدرة 400 ميجاواط (CCGT) تقع شرق عمان. تم بناء المشروع وهو مملوك ومُشغل من قبل شركة AES الأردن.'
+                    : 'The Amman East Power Plant (AEPP) is a 400 MW combined cycle power plant (CCGT) located east of Amman. The project was built and is owned and operated by AES Jordan PSC.'
+                  }
+                </p>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'باستثمار قدره 300 مليون دولار أمريكي، تمثل محطة عمان الشرقية للطاقة واحدة من أكبر الاستثمارات الأجنبية في قطاع الطاقة في الأردن.'
+                    : 'With an investment of 300 million US Dollars, the Amman East power plant represents one of the largest foreign investment in power sector of Jordan.'
+                  }
+                </p>
+
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'تم دعم تمويل المشروع من قبل المؤسسة الحكومية الأمريكية للاستثمار الخاص في الخارج (OPIC) والبنك الياباني للتعاون الدولي (JBIC) والبنك التجاري سوميتومو ميتسوي المصرفي ومصرف المشرق والبنك العربي الأوروبي مع ضمان المخاطر الجزئي للبنك الدولي.'
+                    : 'The project financing was supported by the US governmental institution Overseas Private Investment Corporation (OPIC) and the Japan Bank for International Cooperation (JBIC) and commercial bank Sumitomo Mitsui Banking Corporation, Mashreq Bank, Europe Arab Bank with world bank partial risk guarantee.'
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AES Levant Holdings BV – Levant Power Plant (IPP4) */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Content */}
+            <div className={`transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="inline-flex items-center px-6 py-3 bg-[#005670] bg-opacity-10 rounded-full mb-6">
+                <Building2 className="w-5 h-5 text-[#005670] mr-2" />
+                <span className="text-[#005670] font-semibold text-sm tracking-wide uppercase">
+                  {isArabic ? 'IPP4' : 'IPP4'}
+                </span>
+              </div>
+              
+              <h2 className="text-4xl font-bold text-[#231f20] mb-8 leading-tight">
+                {isArabic ? 'شركة AES بلاد الشام - محطة بلاد الشام للطاقة (IPP4)' : 'AES Levant Holdings BV – Levant Power Plant (IPP4)'}
+              </h2>
+              
+              <div className="space-y-6">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'تقع محطة AES بلاد الشام للطاقة شرق عمان، في نفس موقع محطة عمان الشرقية للطاقة الحالية. تم بناء المشروع وهو مملوك ومُشغل من قبل AES بلاد الشام.'
+                    : 'The AES Levant power plant is located east of Amman, on the same site of the existing Amman East power plant. The project was built and is owned and operated by AES Levant.'
+                  }
+                </p>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'المشروع عبارة عن تقنية محرك ثلاثي الوقود، مصمم في المقام الأول لتشغيل الذروة، مما يسمح بمجموعة عالية من المرونة من حيث استخدام الوقود والإرسال.'
+                    : 'The project is a tri-fuel engine technology, designed primarily for peaking operation, allowing a high range of flexibility in terms of fuel usage and dispatch.'
+                  }
+                </p>
+
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {isArabic
+                    ? 'بلغت التكلفة الإجمالية للمشروع 360 مليون دولار أمريكي. تم دعم تمويل المشروع من قبل المؤسسة الحكومية الأمريكية للاستثمار الخاص في الخارج (OPIC) والبنك الأوروبي للإنشاء والتعمير (EBRD).'
+                    : 'The total project cost was 360 million US Dollars. The project financing was supported by the US governmental institution Overseas Private Investment Corporation (OPIC) and the European Bank for Reconstruction and Development (EBRD).'
+                  }
+                </p>
+              </div>
+            </div>
+            
+            {/* Right Column - Image */}
+            <div className={`transition-all duration-1000 delay-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt={isArabic ? 'محطة بلاد الشام للطاقة' : 'Levant Power Plant'}
+                className="w-full h-96 object-cover rounded-2xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Content */}
